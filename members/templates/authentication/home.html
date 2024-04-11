@@ -1,0 +1,22 @@
+{% extends 'authentication/base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated  %}
+    <h2>Your info..</h2>
+        {{user.username}} <br>
+        {{user.first_name}} <br>
+        {{user.last_name}}
+        <br>
+        <h4>You can logout also</h4>
+        <button class="btn btn-outline-secondary btn-sm"><a href="{% url 'logout' %}">Logout</a></button>
+
+    {% else %}
+        <h2>You should login or register</h2>
+        <br>
+        <button class="btn btn-outline-secondary btn-sm"><a href="{% url 'login' %}">Login</a></button> <button class="btn btn-outline-secondary btn-sm"><a href="{% url 'register' %}">Register</a></button>
+
+    {% endif %}
+
+<br><br>    
+{% endblock %}
